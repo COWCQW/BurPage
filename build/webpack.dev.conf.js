@@ -1,10 +1,10 @@
 const path = require("path")
 const webpack = require("webpack")
 const merge = require("webpack-merge")
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
-const baseWebpackConfig = require('./webpack.base.conf')
-const config = require('../config')
+const baseWebpackConfig = require("./webpack.base.conf")
+const config = require("../config")
 
 
 
@@ -20,7 +20,7 @@ module.exports = merge(baseWebpackConfig,{
         test: /.*\.(gif|png|jpe?g|svg|webp)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {}
           }
         ]
@@ -28,24 +28,26 @@ module.exports = merge(baseWebpackConfig,{
       {
         test: /\.s[c|a]ss$/,
         use: [
-          'css-loader',
-          'postcss-loader',
-          'sass-loader'
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+          "sass-loader"
         ]
       },
       {
-        test: /\.styl(us)?/,
+        test: /\.styl(us)?$/,
         use: [
-          'css-loader',
-          'postcss-loader',
-          'stylus-loader'
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+          "stylus-loader"
         ]
       },
       {
         test: /\.css$/,
         use: [
-          'style-loader',
-          'css-loader',
+          "style-loader",
+          "css-loader",
         ]
       }
     ]
@@ -58,11 +60,12 @@ module.exports = merge(baseWebpackConfig,{
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: path.join(__dirname, '../public'),
+    contentBase: path.join(__dirname, "../public"),
     hot: true,
     host: config.dev.host,
     port: config.dev.port,
     open: config.dev.autoOpenBrowser,
-    proxy: config.dev.proxyTable
+    proxy: config.dev.proxyTable,
+    historyApiFallback:config.dev.historyApiFallback
   }
 })

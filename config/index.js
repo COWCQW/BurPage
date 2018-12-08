@@ -5,6 +5,11 @@ const path = require("path")
 module.exports = {
   indexHTML: path.resolve(__dirname, "../public/index.html"),
   assetsRoot: path.resolve(__dirname, "../dist"),
+  alias:{
+    "pages":path.resolve(__dirname, "../src/pages"),
+    "components":path.resolve(__dirname, "../src/components"),
+    "assets": path.resolve(__dirname, "../src/assets")
+  },
   dev: {
     assetsSubDirectory: "static",
     assetsPublicPath: "/",
@@ -12,6 +17,7 @@ module.exports = {
     host: "localhost",
     port: 8081, 
     autoOpenBrowser: true,
+    historyApiFallback: true
   },
   build: {
     assetsSubDirectory: "static",

@@ -23,6 +23,9 @@ const baseWebpackConfig = {
     path: config.assetsRoot,
     publicPath: isDev? config.dev.assetsPublicPath: config.build.assetsPublicPath
   },
+  resolve:{
+    alias:config.alias
+  },
   module:{
     rules:[
       {
@@ -31,6 +34,10 @@ const baseWebpackConfig = {
         include: [
           path.resolve(__dirname,"../src")
         ]
+      },
+      {
+        test: /\.(ttf|eot|woff)$/,
+        use: "file-loader"
       }
     ]
   }

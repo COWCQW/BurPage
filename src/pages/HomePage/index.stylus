@@ -1,0 +1,31 @@
+@import '~assets/stylus/base.stylus'
+.homePage
+  width 320px
+  position absolute
+  top 50%
+  left 50% 
+  transform translate(-50%,-60%)
+  text-align center 
+  h1
+    font-family $font-family 
+    font-size 35px
+    font-weight 700
+    margin 12px 0
+    letter-spacing 9px
+  h2
+    font-size 15px
+    margin-bottom 30px
+    letter-spacing 1.5px
+    color $color-font
+  .homePage_Item
+    color $color-font
+    font-size 14px
+    letter-spacing 2px
+    line-height 2em
+    a
+      display block
+      transition 0.2s color ease
+
+      &:hover
+        color red
+        cursor pointer

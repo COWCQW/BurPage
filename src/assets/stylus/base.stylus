@@ -1,0 +1,11 @@
+// 颜色定义规范
+$color-font = #999
+
+//字体定义规范
+$font-family = 'Montserrat', 'Helvetica Neue', Arial, sans-serif
+$font-size-small-s = 10px
+$font-size-small = 12px
+$font-size-medium = 14px
+$font-size-medium-x = 16px
+$font-size-large = 18px
+$font-size-large-x = 22px

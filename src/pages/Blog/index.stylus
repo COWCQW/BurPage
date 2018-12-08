@@ -1,0 +1,29 @@
+.blogHeader
+  height 100px
+  padding 100px 0 0 0
+  .nav
+    display flex
+    justify-content center
+    a
+      width 100px
+      height 50px
+      text-align center
+      cursor pointer
+      vertical-align bottom
+      font-size 14px
+      color #777
+      i
+        display block
+        width 35px
+        height 30px
+        margin 0 auto 5px auto 
+        background-size cover
+        &.recent
+          background-image url("../../assets/svg/recent.svg")
+        &.sort
+          background-image url("../../assets/svg/sort.svg")
+        &.tips
+          background-image url("../../assets/svg/tips.svg")
+        &.file
+          background-image url("../../assets/svg/file.svg")
+      

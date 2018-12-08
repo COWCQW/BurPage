@@ -3,6 +3,9 @@
     [
       "@babel/preset-env",
       {
+        // TreeShaking
+        "modules": false,
+        "loose": true,
         "targets": {
           "browsers":[
             " >1%",
@@ -13,5 +16,8 @@
       }
     ],
     "@babel/preset-react"
-  ]
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators",{"decoratorsBeforeExport":true}]
+  ] 
 }
