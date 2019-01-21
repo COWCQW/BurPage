@@ -1,0 +1,34 @@
+.blogSort
+  width 60%
+  margin 0 auto
+  padding-top 100px
+  ul
+    padding 0 40%
+    a
+      display block
+      text-align center
+      height 70px
+      line-height 70px
+      font-size 18px
+      &:hover
+        animation shake 2s infinite
+
+
+@keyframes shake {
+  0%, 100%{
+    transform:translateX(0)
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90%{
+    transform:translate(2px,-5px)
+  }
+  20%,
+  40%,
+  60%,
+  80%{
+    transform:translate(-2px,5px)
+  }
+}

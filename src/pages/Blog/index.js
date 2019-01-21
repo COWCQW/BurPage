@@ -1,32 +1,26 @@
 import React from "react"
 import NavList from "components/NavList"
-import BlogSection from "components/BlogSection"
-import {BrowserRouter,Route} from "react-router-dom"
-import Recent from "components/Recent"
+import {Route,Switch} from "react-router-dom"
+
+import BlogAritcleList from "components/BlogAritcleList"
+import BlogSort from "components/BlogSort"
+import BlogAchieve from "components/BlogAchieve"
+
 import "./index.stylus"
+
 class Blog extends React.PureComponent{
   constructor(props){
     super(props)
     this.navMsg = [
       {
-        tag:"最近",
-        route: "/blog/recent",
-        icon: "recent"
-      },
-      {
         tag:"分类",
-        route: "sort",
+        route: "/blog/sort",
         icon:"sort"
       },
       {
-        tag:"标签",
-        route: "tips",
-        icon: "tips"
-      },
-      {
         tag:"归档",
-        route: "file",
-        icon : "file"
+        route: "/blog/achieve",
+        icon : "achieve"
       }
     ]
 
@@ -37,9 +31,9 @@ class Blog extends React.PureComponent{
         <header className="blogHeader">
           <NavList navMsg={this.navMsg} type="nav"/>
         </header>
-        <BlogSection></BlogSection>
-        {/* <Route path="/blog/recent" component={Recent}></Route> */}
-        <footer></footer>
+          <Route path="/blog" component={BlogAritcleList} exact/>
+          <Route path="/blog/sort" component={BlogSort} exact/>
+          <Route path="/blog/achieve" component={BlogAchieve}/>
       </React.Fragment>
     )
   }

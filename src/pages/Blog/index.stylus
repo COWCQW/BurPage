@@ -1,12 +1,14 @@
 .blogHeader
-  height 100px
-  padding 100px 0 0 0
+  height 40px
+  padding-top 5px
+  padding-bottom 5px
+  background-color #24292e
   .nav
     display flex
-    justify-content center
+    padding-left 20px
     a
-      width 100px
-      height 50px
+      width 70px
+      height 40px
       text-align center
       cursor pointer
       vertical-align bottom
@@ -14,16 +16,14 @@
       color #777
       i
         display block
-        width 35px
-        height 30px
-        margin 0 auto 5px auto 
+        width 20px
+        height 20px
+        margin 0 auto 2px auto
+        transition 0.5s transform ease 
         background-size cover
-        &.recent
-          background-image url("../../assets/svg/recent.svg")
         &.sort
-          background-image url("../../assets/svg/sort.svg")
-        &.tips
-          background-image url("../../assets/svg/tips.svg")
-        &.file
-          background-image url("../../assets/svg/file.svg")
-      
+          background-image url("../../assets/svg/blog-sort.svg")
+        &.achieve
+          background-image url("../../assets/svg/blog-achieve.svg")
+        &:hover
+          transform rotate(80deg)

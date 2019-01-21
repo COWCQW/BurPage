@@ -1,0 +1,24 @@
+.blogArticleList
+  padding 20px 0
+  .article
+    width 60%
+    margin 0 auto
+    .article-head
+      height 25px
+      line-height 25px
+      margin-bottom 10px
+      text-align center
+    .article-body
+      .top
+        display flex 
+        justify-content center
+        margin-bottom 20px
+        >div
+          width 200px
+          text-align center     
+    .cover
+      display block
+      height 100px
+      width 70%
+      margin 0 auto 20px auto  
+    
