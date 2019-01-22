@@ -16,7 +16,9 @@ class NavList extends React.PureComponent{
             // 获取tag，route，icon
             const {tag,route,icon} = item
             return (
-              <NavLink key={index} to={route}>
+              <NavLink key={index} to={route} exact activeStyle={{
+                fontSize:"100px"
+              }}>
                 {icon ? <i className={icon}/>:null}
                 {tag}
               </NavLink>)

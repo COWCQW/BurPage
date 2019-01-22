@@ -17,16 +17,16 @@ class HomePage extends React.PureComponent{
         route:"blog"
       },
       {
-        tag:"Journey", 
-        route:"journey"
+        tag:"Journal", 
+        route:"journal"
       },
       {
         tag:"Application",
         route:"application"
       },
       {
-        tag:"Contact",
-        route:"contact"
+        tag:"About",
+        route:"about"
       }
     ]
   }

@@ -5,6 +5,7 @@ class BlogArticleList extends React.PureComponent {
         super(props)
     }
     render(){
+        const type = this.props.match.params.type
         // const articles = this.props.articleList
         const articles = [{
             title:"读书笔记",
@@ -14,6 +15,13 @@ class BlogArticleList extends React.PureComponent {
         }]
         return <section className="blogArticleList">
             {
+                type === undefined?null:(
+                    <h2 className="type">
+                        {type}
+                    </h2>
+                )
+            }
+            {
                 articles.map((article)=>{
                     const {title,date,type,summary,cover} = article
                     return (
@@ -22,10 +30,12 @@ class BlogArticleList extends React.PureComponent {
                         <div className="article-body">
                             <div className="top">
                                 <div className="date">
-                                    {date}<i></i>
+                                    <i></i>
+                                    <span>{date}</span>
                                 </div>
                                 <div className="type">
-                                    {type}<i></i>
+                                    <i></i>
+                                    <span>{type}</span>
                                 </div>
                             </div>
                             <img className = "cover" src={cover} alt=""/>

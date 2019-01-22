@@ -1,8 +1,27 @@
 .blogArticleList
   padding 20px 0
+  h2.type
+    height 50px
+    width 200px
+    margin 0 auto
+    text-align center
+    color #00a1d6
+    cursor pointer
+    line-height 50px
+    transition 0.5s all ease
+    box-shadow:4px 4px 8px 1px rgba(0,161,214,0.5);
+    margin-bottom 50px
+    &:hover
+      box-shadow:7px 5px 8px 1px rgba(0,161,214,0.7);
   .article
     width 60%
     margin 0 auto
+    cursor pointer
+    border-bottom 2px solid #d1d5da
+    transition 1s box-shadow ease
+    &:hover
+      box-shadow -1px -2px 20px 1px #e1e4e8 
+    padding 30px
     .article-head
       height 25px
       line-height 25px
@@ -10,12 +29,33 @@
       text-align center
     .article-body
       .top
-        display flex 
-        justify-content center
         margin-bottom 20px
+        position relative
+        height 20px
         >div
-          width 200px
-          text-align center     
+          position absolute
+          left 50%
+          transform translateX(-100%)
+          text-align center 
+          display table
+          padding-right 20px
+          vertical-align middle
+          i     
+            display table-cell
+            width 16px
+            background-size cover
+            background-image url("../../assets/svg/article-date.svg")
+          span 
+            display table-cell
+            text-align right 
+            padding-left 10px
+        .type
+          padding-left 20px
+          transform translateX(0)
+          i
+            background-image url("../../assets/svg/article-sort.svg")
+          span 
+            text-align left
     .cover
       display block
       height 100px

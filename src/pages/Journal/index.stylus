@@ -1,0 +1,100 @@
+.journalHead
+  height 40px
+  line-height 40px
+  background-color #1d2a56
+  padding-left 40px
+  >.title
+    color #fff
+    font-size 20px
+    font-weight bold
+    font-style italic
+    margin-right 10px
+  >a
+    display inline-block
+    width 40px
+    height 40px
+    vertical-align top
+    background-image url("../../assets/svg/journal-back.svg")
+    background-size cover
+    transform rotate(90deg)
+    transition 0.2s transform ease
+    &:hover
+      transform rotate(0deg)
+.journalContent
+  position relative
+  .jouranlArticleList
+    transition 0.5s all ease
+    margin 0 auto
+    color #555
+    padding 100px 0
+    width 60%
+    @media screen and (max-width : 415px)
+      width 90% 
+    position relative
+    .journalArticle
+      border-bottom 3px solid #1d2a56
+      border-right 3px solid #1d2a56
+      border-radius 10px
+      padding 20px
+      margin-bottom 40px
+      >h2
+        font-size 20px
+      >h3
+        font-size 14px
+      >h3
+      >h2,>h3
+        text-align center
+        margin-bottom 10px
+      >img
+        display block
+        width 80%
+        height 150px
+        margin 0 auto
+        border 1px solid #000
+        margin-bottom 20px
+      p
+        padding 20px
+        line-height 20px
+  .journalMenu
+    position absolute
+    transition 0.5s all ease
+    left -200px
+    width 200px
+    height 40px
+    padding 20px
+    min-height 600px
+    &.btnOpen
+      left 0
+      &~.jouranlArticleList
+        transform translateX(150px)
+    >.year
+      text-align center
+      height 40px
+      line-height 40px
+      font-size 20px
+      background-color #f6f8fa
+      border-radius 10%
+      position relative
+      margin-bottom 5px
+      cursor pointer
+      &.active
+        background-color #1d2a56
+        color #fff
+      &:before
+        content ""
+        position absolute
+        width 2px
+        height 100%
+        background-color #ccc
+        top 0 
+        left 0  
+    .button
+      position absolute
+      background-image url("../../assets/svg/journal-menu.svg")
+      background-size cover
+      width 40px
+      height 40px
+      right -40px
+      top 20px
+
+  

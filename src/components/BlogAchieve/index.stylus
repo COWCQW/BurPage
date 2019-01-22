@@ -18,6 +18,7 @@
   .achieve
     .year
       padding 20px 0
+      font-size 16px
     >div
       >div
         box-shadow 0 0 14px #cacbcb
@@ -30,6 +31,7 @@
         transition 0.5s transform ease
         &:hover
           transform scale(1.05)
+          cursor pointer
         >span 
           display inline-block
           margin-right 10px

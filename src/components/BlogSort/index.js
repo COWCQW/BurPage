@@ -9,15 +9,15 @@ class BlogSort extends React.PureComponent{
   render(){
     const navMsg = [{
       tag:"js面试",
-      route:"blog/js面试"
+      route:"/blog/js面试"
     },
     {
       tag:"js面试",
-      route:"blog/js面试"
+      route:"/blog/js面试"
     },
     {
       tag:"js面试",
-      route:"blog/js面试"
+      route:"/blog/js面试"
     }
   ]
     return (
