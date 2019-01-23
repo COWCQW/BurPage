@@ -6,7 +6,8 @@
   "scripts": {
     "test": "",
     "dev": "webpack-dev-server --progress --config ./build/webpack.dev.conf.js",
-    "build": "node ./build/build.js"
+    "build": "node ./build/build.js",
+    "server": "node ./server"
   },
   "author": "qwc",
   "license": "ISC",
@@ -45,6 +46,11 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "marked": "^0.6.0",
+    "mongoose": "^5.4.6",
+    "pug": "^2.0.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",

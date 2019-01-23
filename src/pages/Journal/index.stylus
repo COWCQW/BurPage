@@ -37,6 +37,10 @@
       border-radius 10px
       padding 20px
       margin-bottom 40px
+      cursor pointer
+      &:hover
+        >h2
+          font-weight bold
       >h2
         font-size 20px
       >h3
@@ -56,7 +60,7 @@
         padding 20px
         line-height 20px
   .journalMenu
-    position absolute
+    position fixed
     transition 0.5s all ease
     left -200px
     width 200px

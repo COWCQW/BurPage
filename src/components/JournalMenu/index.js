@@ -4,7 +4,7 @@ class JournalMenu extends React.PureComponent{
   constructor(props){
     super(props)
     this.state = {
-      isBtnClose:false,
+      isBtnClose:true,
       currentIndex:0
     }
     this.handleMenuBtnClick = this.handleMenuBtnClick.bind(this)
