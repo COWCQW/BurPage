@@ -1,81 +1,25 @@
 import React from "react"
+import {connect} from "react-redux"
 import './index.stylus'
 
+const mapStateToProps = (state) => ({
+  blog:state.blog
+})
 
 class BlogAchieve extends React.PureComponent{
   constructor(props){
     super(props)
   }
   render(){
-    const achieves = [
-      {
-        years:"2017",
-        articles:[
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          },
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          },
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          }
-        ]
-      },
-      {
-        years:"2017",
-        articles:[
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          },
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          },
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          }
-        ]
-      },
-      {
-        years:"2017",
-        articles:[
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          },
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          },
-          {
-            date:"3-20",
-            title:"如何快乐的划水",
-            route:"如何快乐的划水.md"
-          }
-        ]
-      }
-    ]
+    const achieves = this.props.blog.blogListSortByDate
+    const number = this.props.blog.blogList.length
     return (
       <section className="blogAchieve">
-        <h2>目前共计2篇文章，继续努力</h2>
+        <h2>目前共计{number}篇文章，继续努力</h2>
         {
           achieves.map((achieve=>(
           <div className="achieve" key={achieve.years}>
-            <h3 className="year">{achieve.years}</h3>
+            <h3 className="year">{achieve.year}</h3>
             <div>
               {achieve.articles.map((article)=>(
                 <div key = {article.date}>
@@ -90,4 +34,4 @@ class BlogAchieve extends React.PureComponent{
   }
 }
 
-export default BlogAchieve
+export default connect(mapStateToProps)(BlogAchieve)

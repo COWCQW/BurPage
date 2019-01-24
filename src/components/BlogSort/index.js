@@ -1,25 +1,26 @@
 import React from "react"
+import {connect} from "react-redux"
+
 import NavList from "../NavList"
 import "./index.stylus"
+
+const mapStateToProps = (state) => ({
+  blog:state.blog
+})
 
 class BlogSort extends React.PureComponent{
   constructor(props){
     super(props)
   }
   render(){
-    const navMsg = [{
-      tag:"js面试",
-      route:"/blog/js面试"
-    },
-    {
-      tag:"js面试",
-      route:"/blog/js面试"
-    },
-    {
-      tag:"js面试",
-      route:"/blog/js面试"
+    const blogListSortByType = this.props.blog.blogListSortByType
+    const navMsg = []
+    for(let i in blogListSortByType){
+      navMsg.push({
+        tag:i,
+        route:`/blog/${i}`
+      })
     }
-  ]
     return (
     <section className="blogSort">
       <NavList navMsg={navMsg} type="sort"></NavList>
@@ -27,4 +28,4 @@ class BlogSort extends React.PureComponent{
   }
 }
 
-export default BlogSort
+export default connect(mapStateToProps)(BlogSort)

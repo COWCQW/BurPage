@@ -68,13 +68,12 @@ const InitBlogDB = () => {
 
   // 数据库存储
   BlogArticleModel.insertMany(articleList,(err,doc)=>{
-    console.log(doc)
+
   })
   BlogArticleSortByTypeModel.insertMany(articleListSortByType,(err,doc)=>{
-    console.log(doc)
+
   })
   BlogArticleSortByDateModel.insertMany(articleListSortByDate,(err,doc)=>{
-    console.log(doc)
   })
 
 }

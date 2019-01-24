@@ -1,5 +1,7 @@
 import React from "react"
 import {Route,NavLink,Switch} from "react-router-dom"
+import {connect} from "react-redux"
+
 
 import BlogAritcleList from "components/BlogAritcleList"
 import BlogSort from "components/BlogSort"
@@ -7,6 +9,13 @@ import BlogAchieve from "components/BlogAchieve"
 
 import "./index.stylus"
 import BlogArticleList from "../../components/BlogAritcleList";
+import {fetchBloglist} from "../../store/redux.blog"
+
+
+
+const mapDispatchToProps = {
+  fetchBloglist
+}
 
 class Blog extends React.PureComponent{
   constructor(props){
@@ -32,7 +41,6 @@ class Blog extends React.PureComponent{
   }
   render(){
     const isBlogAll = this.props.location.pathname === "/blog"
-    console.log(isBlogAll)
     return (
       <React.Fragment>
         <header className="blogHeader">
@@ -67,6 +75,9 @@ class Blog extends React.PureComponent{
       </React.Fragment>
     )
   }
+  componentDidMount(){
+    this.props.fetchBloglist()
+  }
 }
 
-export default Blog
+export default connect(null,mapDispatchToProps)(Blog)
