@@ -5,25 +5,27 @@ const path = require("path")
 module.exports = {
   indexHTML: path.resolve(__dirname, "../public/index.html"),
   assetsRoot: path.resolve(__dirname, "../dist"),
-  alias:{
-    "pages":path.resolve(__dirname, "../src/pages"),
-    "components":path.resolve(__dirname, "../src/components"),
-    "assets": path.resolve(__dirname, "../src/assets")
+  alias: {
+    "pages": path.resolve(__dirname, "../src/pages"),
+    "components": path.resolve(__dirname, "../src/components"),
+    "assets": path.resolve(__dirname, "../src/assets"),
+    "common": path.resolve(__dirname, "../src/common"),
+    "store": path.resolve(__dirname, "../src/store")
   },
   dev: {
     assetsSubDirectory: "static",
     assetsPublicPath: "/",
     proxyTable: {
       '/api': {
-        target: 'http://localhost:9999/',  //目标接口域名
-        changeOrigin: true,  //是否跨域
+        target: 'http://localhost:9999/', //目标接口域名
+        changeOrigin: true, //是否跨域
         pathRewrite: {
-          '^/api': '/'   //重写接口
+          '^/api': '/' //重写接口
         }
       }
     },
     host: "localhost",
-    port: 8081, 
+    port: 8081,
     autoOpenBrowser: true,
     historyApiFallback: true
   },
@@ -33,9 +35,9 @@ module.exports = {
     //  --report 开启bundle 分析
     bundleAnalyzerReport: process.env.npm_config_report,
     // 图片优化
-    imageOptimization:{
+    imageOptimization: {
       // 图像压缩
-      imageMin:{
+      imageMin: {
         mozjpeg: { // 压缩 jpeg 的配置
           progressive: true,
           quality: 65
@@ -55,16 +57,16 @@ module.exports = {
         },
       },
       // 图片转base64
-      transfromToDataURL:{
+      transfromToDataURL: {
         options: {
           limit: 8192, // 单位是 Byte，当文件小于 8KB 时作为 DataURL 处理
         },
       }
     },
-    gzip:{
-      openGzip:true,
+    gzip: {
+      openGzip: true,
       // 哪些文件需要gzip
-      productionGzipExtensions:["js","css"]
+      productionGzipExtensions: ["js", "css"]
     }
   }
 }

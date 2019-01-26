@@ -25,26 +25,9 @@ const BlogArticle = {
     require: true
   },
 }
-const BlogArticleSortByType = {
-  type:{
-    require:true,
-    type:String
-  },
-  articles:[
-    BlogArticle
-  ]
-}
-const BlogArticleSortByDate = {
-  year:String,
-  articles:[
-    BlogArticle
-  ]
-}
 
 const blogModel = {
-  BlogArticle,
-  BlogArticleSortByType,
-  BlogArticleSortByDate
+  BlogArticle
 }
 
 

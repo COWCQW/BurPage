@@ -1,49 +1,45 @@
 import React from "react"
 
-class JournalMenu extends React.PureComponent{
-  constructor(props){
+class JournalMenu extends React.PureComponent {
+  constructor(props) {
     super(props)
     this.state = {
-      isBtnClose:true,
-      currentIndex:0
+      isBtnClose: true
     }
     this.handleMenuBtnClick = this.handleMenuBtnClick.bind(this)
     this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
   }
-  handleMenuItemClick(index){
-    this.setState((pre)=>({
-      currentIndex:index
-    }))
+  handleMenuItemClick(year) {
+    this.props.handleChangeClick(year)
+    document.documentElement.scrollTo(0, 0)
   }
-  handleMenuBtnClick(){
-    this.setState((pre)=>({
+  handleMenuBtnClick() {
+    this.setState(pre => ({
       isBtnClose: !pre.isBtnClose
     }))
   }
-  render(){
-    const years = [
-      "2019",
-      "2018",
-      "2017",
-      "2016"
-    ]
+  render() {
+    const years = this.props.years
     return (
-      <aside className={this.state.isBtnClose?"journalMenu":"journalMenu btnOpen"}>
-        <div className="button"
-          onClick={this.handleMenuBtnClick}
-        ></div>
-        {
-          years.map((year,index)=>{
-            return (
-              <div 
-                className={index == this.state.currentIndex?"active year":"year"}
-                onClick={()=>this.handleMenuItemClick(index)}
-              >
-                {year}
-              </div>
-            )
-          })
+      <aside
+        className={
+          this.state.isBtnClose ? "journalMenu" : "journalMenu btnOpen"
         }
+      >
+        <div className="button" onClick={this.handleMenuBtnClick} />{" "}
+        {years.map((year, index) => {
+          return (
+            <div
+              className={
+                this.props.currentYear === year ? "active year" : "year"
+              }
+              onClick={() => this.handleMenuItemClick(year)}
+            >
+              {" "}
+              {year}{" "}
+            </div>
+          )
+        })}{" "}
       </aside>
     )
   }
