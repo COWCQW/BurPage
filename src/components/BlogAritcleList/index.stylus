@@ -1,18 +1,30 @@
 .blogArticleList
   padding 20px 0
   h2.type
+    background-color #fff
+    position relative
     height 50px
     width 200px
     margin 0 auto
     text-align center
-    color #00a1d6
+    color #666
     cursor pointer
     line-height 50px
     transition 0.5s all ease
-    box-shadow:4px 4px 8px 1px rgba(0,161,214,0.5);
+    border 1px solid rgba(123,121,121,0.5)
     margin-bottom 50px
+    &:after
+      content ""
+      display block
+      position absolute
+      width 100%
+      height 100%
+      border 1px solid rgba(123,121,121,0.7)
+      left 2px
+      top 2px
+      z-index -10
     &:hover
-      box-shadow:7px 5px 8px 1px rgba(0,161,214,0.7);
+      box-shadow 7px 5px 8px 1px rgba(99,99,99,0.2)
   .article
     width 60%
     margin 0 auto 30px auto
@@ -20,15 +32,18 @@
     border-bottom 2px solid #d1d5da
     transition 1s box-shadow ease
     padding 30px
+    animation fade 0.5s ease 1 normal
     &:hover
       box-shadow -1px -2px 20px 1px #e1e4e8 
     .article-head
+      font-size 18px
       height 25px
       line-height 25px
       margin-bottom 10px
       text-align center
     .article-body
       .top
+        color #666
         margin-bottom 20px
         position relative
         height 20px
@@ -43,12 +58,16 @@
           i     
             display table-cell
             width 16px
+            height 16px
             background-size cover
             background-image url("../../assets/svg/article-date.svg")
           span 
             display table-cell
             text-align right 
             padding-left 10px
+            line-height 16px
+            font-size 12px
+            font-style italic
         .type
           padding-left 20px
           transform translateX(0)
@@ -60,5 +79,15 @@
       display block
       height 100px
       width 70%
-      margin 0 auto 20px auto  
+      margin 0 auto 20px auto 
+    p
+      font-size 14px
+
+@keyframes fade
+  from
+    transform translate(30px,-20px)
+    opacity 0
+  to
+    transform translateY(0)
+    opacity 1
     

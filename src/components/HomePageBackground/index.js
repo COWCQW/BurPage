@@ -26,7 +26,7 @@ class HomePageBackground extends React.PureComponent {
     canvas.width = this.WIDTH
     this.ctx = canvas.getContext("2d")
     this.config = {
-      dotsNum: 30,
+      dotsNum: 20,
       minDistance: this.WIDTH < 800 ? 100 : 200,
       lineClor: "#000"
     }

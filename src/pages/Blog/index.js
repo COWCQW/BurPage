@@ -41,37 +41,35 @@ class Blog extends React.PureComponent {
       <React.Fragment>
         <header className="blogHeader">
           <nav className="nav">
-            {" "}
             {this.navMsg.map((item, index) => {
               // 获取tag，route，icon
               const { tag, route, icon } = item
               return (
                 <NavLink
-                  key={index}
-                  to={route}
+                    key={index}
+                    to={route}
                   exact
                   activeStyle={{
-                    color: "#fff"
+                    color: "#333"
                   }}
-                >
-                  {" "}
-                  {icon ? <i className={icon} /> : null} {tag}{" "}
+                >          
+                  {icon ? <i className={icon} /> : null} {tag} 
                 </NavLink>
               )
-            })}{" "}
-          </nav>{" "}
+            })} 
+          </nav> 
           {isBlogAll ? (
             <div className="avatar">
               <NavLink to="/" />
             </div>
-          ) : null}{" "}
-        </header>{" "}
+          ) : null} 
+        </header> 
         <Switch>
           <Route path="/blog" component={BlogAritcleList} exact />
           <Route path="/blog/sort" component={BlogSort} exact />
           <Route path="/blog/achieve" component={BlogAchieve} exact />
-          <Route path="/blog/:type" component={BlogArticleList} />{" "}
-        </Switch>{" "}
+          <Route path="/blog/:type" component={BlogArticleList} /> 
+        </Switch> 
       </React.Fragment>
     )
   }

@@ -4,7 +4,8 @@
   "description": "BUILD YOUR PAGE",
   "main": "index.js",
   "scripts": {
-    "test": "",
+    "test":"",
+    "start":"npm run dev && npm run server",
     "dev": "webpack-dev-server --progress --config ./build/webpack.dev.conf.js",
     "build": "node ./build/build.js",
     "server": "node ./server"

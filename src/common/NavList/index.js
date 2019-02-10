@@ -21,12 +21,12 @@ class NavList extends React.PureComponent {
                   fontSize: "100px"
                 }}
               >
-                {" "}
-                {icon ? <i className={icon} /> : null} {tag}{" "}
-              </NavLink>{" "}
+                 
+                {icon ? <i className={icon} /> : null} {tag} 
+              </NavLink> 
             </li>
           )
-        })}{" "}
+        })} 
       </ul>
     )
   }

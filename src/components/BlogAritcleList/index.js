@@ -13,7 +13,7 @@ class BlogArticleList extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      showItemNmuber: 4
+      showItemNmuber: 5
     }
     this.lazyLoad = this.lazyLoad.bind(this)
   }
@@ -48,28 +48,28 @@ class BlogArticleList extends React.PureComponent {
           )
     return articles === undefined ? null : (
       <section className="blogArticleList">
-        {" "}
-        {type === undefined ? null : <h2 className="type"> {type} </h2>}{" "}
+         
+        {type === undefined ? null : <h2 className="type"> {type} </h2>} 
         {articles.map(article => {
           const { title, date, type, summary, cover } = article
           return (
             <div className="article" key={article.date + article.date}>
-              <h2 className="article-head"> {title} </h2>{" "}
+              <h2 className="article-head"> {title} </h2> 
               <div className="article-body">
                 <div className="top">
                   <div className="date">
                     <i> </i> <span> {date} </span>
-                  </div>{" "}
+                  </div> 
                   <div className="type">
                     <i> </i> <span> {type} </span>
-                  </div>{" "}
-                </div>{" "}
-                {cover ? <img className="cover" src={cover} alt="" /> : null}{" "}
-                <p> {summary} </p>{" "}
-              </div>{" "}
+                  </div> 
+                </div> 
+                {cover ? <img className="cover" src={cover} alt="" /> : null} 
+                <p> {summary} </p> 
+              </div> 
             </div>
           )
-        })}{" "}
+        })} 
       </section>
     )
   }

@@ -26,7 +26,7 @@ class JournalMenu extends React.PureComponent {
           this.state.isBtnClose ? "journalMenu" : "journalMenu btnOpen"
         }
       >
-        <div className="button" onClick={this.handleMenuBtnClick} />{" "}
+        <div className="button" onClick={this.handleMenuBtnClick} /> 
         {years.map((year, index) => {
           return (
             <div
@@ -35,11 +35,11 @@ class JournalMenu extends React.PureComponent {
               }
               onClick={() => this.handleMenuItemClick(year)}
             >
-              {" "}
-              {year}{" "}
+               
+              {year} 
             </div>
           )
-        })}{" "}
+        })} 
       </aside>
     )
   }

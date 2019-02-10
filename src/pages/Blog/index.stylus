@@ -3,29 +3,24 @@
     margin-bottom 40px
     padding-top 5px
     padding-bottom 5px
-    background-color #24292e
     height 40px
     display flex
     padding-left 20px
-    width 100%
     transition 0.1s all ease
-    &.fixed
-      position fixed
-      background-color #ccc
     a
       width 70px
       height 40px
       text-align center
       cursor pointer
-      vertical-align bottom
-      font-size 14px
-      color #777
+      font-size 11px
+      font-weight 600
+      color #666
       transition 0.2s all ease
       i
         display block
         width 20px
         height 20px
-        margin 0 auto 2px auto
+        margin 0 auto 6px auto
         transition 0.5s transform ease 
         background-size cover
         &.sort
