@@ -17,10 +17,10 @@ const reducer = combineReducers({
   blog: blogReducer,
   journal: journalReducer
 })
-const store = createStore(reducer, 
+
+
+export default () => createStore(reducer, 
   window.__REDUX_DEVTOOLS_EXTENSION__ ? 
     compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__()):
     compose(applyMiddleware(thunk))
-    )
-
-export default store
+)

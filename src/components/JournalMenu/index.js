@@ -1,5 +1,5 @@
 import React from "react"
-
+import "./index.stylus"
 class JournalMenu extends React.PureComponent {
   constructor(props) {
     super(props)

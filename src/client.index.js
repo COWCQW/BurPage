@@ -7,11 +7,14 @@ import Journal from "pages/Journal"
 
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { Provider } from "react-redux"
-import store from "store"
+import Createstore from "store"
 import "assets/stylus/reset.stylus"
+import {fetchBloglist} from "./store/redux.blog"
 
+const stort = Createstore()
+stort.dispatch(fetchBloglist())
 ReactDom.render(
-  <Provider store={store}>
+  <Provider store={stort}>
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={HomePage} />

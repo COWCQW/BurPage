@@ -1,4 +1,4 @@
-import axios from "axios"
+import "whatwg-fetch"
 // 初始化数据
 const initState = {
   journalList:[]
@@ -18,10 +18,10 @@ const initJournalList = (payload) => {
 // reducer
 export const journalReducer = (state=initState,action) => {
   switch(action.type){
-    case INIT_JOURNAL_LIST:
-      return {...state,journalList:action.payload}
-    default:
-      return state
+  case INIT_JOURNAL_LIST:
+    return {...state,journalList:action.payload}
+  default:
+    return state
   }
 }
 
@@ -29,8 +29,8 @@ export const journalReducer = (state=initState,action) => {
 export const fetchJournalList = () => {
 
   return async dispatch => {
-    const res = await axios.get("/api/journal/getJournalList")
-    dispatch(initJournalList(res.data))
+    const data = await fetch("/api/journal/getJournalList").then(res=>res.json())
+    dispatch(initJournalList(data))
   }
 }
 

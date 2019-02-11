@@ -1,5 +1,5 @@
 import React from "react"
-
+import "./index.stylus"
 
 
 class JournalArticalList extends React.PureComponent{
@@ -34,7 +34,7 @@ class JournalArticalList extends React.PureComponent{
   render(){
     const jouranls = this.props.journals?
       this.props.journals.articles.slice(0,this.state.showItemNmuber):
-        []
+      []
     return (
       <div className="jouranlArticleList">
         {

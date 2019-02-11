@@ -13,15 +13,12 @@ module.exports = {
     "store": path.resolve(__dirname, "../src/store")
   },
   dev: {
-    assetsSubDirectory: "static",
+    assetsSubDirectory: "assets",
     assetsPublicPath: "/",
     proxyTable: {
-      '/api': {
-        target: 'http://localhost:9999/', //目标接口域名
+      "/api": {
+        target: "http://localhost:9000/", //目标接口域名
         changeOrigin: true, //是否跨域
-        pathRewrite: {
-          '^/api': '/' //重写接口
-        }
       }
     },
     host: "localhost",
@@ -30,7 +27,7 @@ module.exports = {
     historyApiFallback: true
   },
   build: {
-    assetsSubDirectory: "static",
+    assetsSubDirectory: "assets",
     assetsPublicPath: "/",
     //  --report 开启bundle 分析
     bundleAnalyzerReport: process.env.npm_config_report,
@@ -64,7 +61,7 @@ module.exports = {
       }
     },
     gzip: {
-      openGzip: true,
+      openGzip: false,
       // 哪些文件需要gzip
       productionGzipExtensions: ["js", "css"]
     }

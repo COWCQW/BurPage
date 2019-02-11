@@ -1,11 +1,13 @@
 const ora = require("ora")
 const chalk = require("chalk")
 const webpack = require("webpack")
-const prodWebpackConfig = require("./webpack.prod.conf")
+const prodWebpackConfig = require("./webpack.prod.client")
+const prodWebpackServerConfig = require("./webpack.prod.server")
+const isClient = process.argv[2] === "C"
 
 const spinner = ora("打包开始...\n").start()
 
-webpack(prodWebpackConfig, function (err, stats) {
+const fallBack = function (err, stats) {
   if (err) {
     spinner.fail("编译失败")
     console.log(err)
@@ -22,7 +24,8 @@ webpack(prodWebpackConfig, function (err, stats) {
   }) + "\n\n")
   console.log(chalk.cyan("  编译成功！\n"))
   console.log(chalk.yellow(
-    "  提示: 编译后的文件可以上传并且部署到服务器\n" +
-      "  通过file:// 打开index.html不会起作用.\n"
+    isClient?"客户端代码已经打包完成！":"服务端代码已经打包完成！"
   ))
-})
+}
+
+webpack(isClient?prodWebpackConfig:prodWebpackServerConfig,fallBack)

@@ -18,8 +18,8 @@ class HomePage extends React.PureComponent {
         route: "journal"
       },
       {
-        tag: "Application",
-        route: "application"
+        tag: "暂未开放/(｡ì _ í｡)",
+        route: "空空"
       },
       {
         tag: "About",
@@ -31,11 +31,11 @@ class HomePage extends React.PureComponent {
     return (
       <React.Fragment>
         <div className="homePage">
-          <h1> BUrPage </h1>
-          <h2> Thought & Design & Build </h2>
+          <h1>麦圈の小站</h1>
+          <h2>∧( 'Θ' )∧</h2>
           <NavList navMsg={this.navMsg} type="homePage_Item" />
         </div>
-        <HomePageBackground> </HomePageBackground>
+        <HomePageBackground/>
       </React.Fragment>
     )
   }

@@ -1,4 +1,4 @@
-import axios from "axios"
+import "whatwg-fetch"
 
 
 // initState 初始化数据
@@ -65,33 +65,35 @@ const initBlogListSortByType = (payload) => {
 // Reducer
 export const blogReducer = (state=initState,action) => {
   switch(action.type){
-    case INIT_BLOGLIST:
-      return {
-        ...state,
-        blogList:[...action.payload]
-      }
-    case SORT_BLOGLIST_BY_DATE:
-      return {
-        ...state,
-        blogListSortByDate:[...action.payload]
-      }
-    case SORT_BLOGLIST_BY_TYPE:
-      return {
-        ...state,
-        blogListSortByType:{...action.payload}
-      }
-    default:
-      return state
+  case INIT_BLOGLIST:
+    return {
+      ...state,
+      blogList:[...action.payload]
+    }
+  case SORT_BLOGLIST_BY_DATE:
+    return {
+      ...state,
+      blogListSortByDate:[...action.payload]
+    }
+  case SORT_BLOGLIST_BY_TYPE:
+    return {
+      ...state,
+      blogListSortByType:{...action.payload}
+    }
+  default:
+    return state
   }
 }
-
 // 从服务器拉取数据
 export const fetchBloglist = () => {
-  return async dispatch => {
-    const res = await axios.get("/api/blog/getBlogList")
-    dispatch(initBloglist(res.data))
-    dispatch(initBloglistSortByDate(res.data))
-    dispatch(initBlogListSortByType(res.data))
+  return async (dispatch,getState) => {
+    const blogList = getState().blog.blogList
+    if(blogList.length != 0)
+      return
+    const data = await fetch("/api/blog/getBlogList").then(res=>res.json())
+    dispatch(initBloglist(data))
+    dispatch(initBloglistSortByDate(data))
+    dispatch(initBlogListSortByType(data))
   }
 }
 

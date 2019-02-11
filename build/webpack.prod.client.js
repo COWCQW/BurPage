@@ -1,6 +1,6 @@
-const path = require("path")
+const WebpackAssetsManifest = require('webpack-assets-manifest')
 const merge = require("webpack-merge")
-const baseWebpackConfig = require("./webpack.base.conf")
+const baseWebpackConfig = require("./webpack.base")
 
 // 生成html模板文件
 const HtmlWebpackPlugin = require("html-webpack-plugin")
@@ -22,6 +22,9 @@ const utils = require("./utils")
 
 const prodWebpackConfig = merge(baseWebpackConfig,{
   // 生产环境
+  entry:{
+    
+  },  
   mode: "production",
   module:{
     rules:[
@@ -31,11 +34,15 @@ const prodWebpackConfig = merge(baseWebpackConfig,{
         use: [
           {
             loader: "url-loader",
-            options:config.build.imageOptimization.transfromToDataURL.options
-          },
-          {
-            loader: "file-loader",
-            options: {}
+            options:{
+              ...config.build.imageOptimization.transfromToDataURL.options,
+              fallback: {
+                loader: 'file-loader',
+                options: {
+                  name: utils.assetsPath('img/[name].[hash:8].[ext]')
+                }
+              }
+            }
           },
           // 图片压缩
           {
@@ -92,26 +99,17 @@ const prodWebpackConfig = merge(baseWebpackConfig,{
   },
   // 优化 
   optimization: {
-    //抽离框架公共JS代码
+    // 抽离框架公共JS代码
     splitChunks: {
-      chunks: "all",
-      minChunks: 1,
-      minSize: 0,
-      cacheGroups: {
-        framework: {
-          test: "framework",
-          name: "framework",
-          enforce: true
-        }
-      }
+      chunks:"all"   
     }
   },
   plugins: [
     new MiniCssExtractPlugin({
       // 默认输出文件夹和output一样
-      filename: utils.assetsPath("css/[name].[hash].css"),
-      // 这个配置？？
-      chunkFilename: utils.assetsPath("css/[id].[hash].css")
+      filename: utils.assetsPath("css/[name].[contenthash:8].bundle.css"),
+      // 异步模块的默认文件名
+      chunkFilename: utils.assetsPath("css/async.[name].[contenthash:8].bundle.css")
     }),
     new HtmlWebpackPlugin({
       template: config.indexHTML,
@@ -129,6 +127,7 @@ const prodWebpackConfig = merge(baseWebpackConfig,{
         minifyJS: true // 压缩 HTML 中出现的 JS 代码
       }
     }),
+    new WebpackAssetsManifest(),
     new CleanWebpackPlugin([config.assetsRoot], { allowExternal: true }),
   ]
 })

@@ -1,7 +1,8 @@
 // webpack基本配置，生产环境和开发环境都使用
 const path = require("path")
+
 // webpack入口文件
-const ENTRY_PATH = path.resolve(__dirname,"../src/index.js")
+const ENTRY_PATH = path.resolve(__dirname,"../src/client.index.js")
 
 const config = require("../config")
 const utils = require("./utils")
@@ -13,13 +14,14 @@ const isDev = process.env.NODE_ENV === "development"
 
 const baseWebpackConfig = {
   entry:{
-    app: ENTRY_PATH,
-    // 将框架单独打包成js文件
-    framework:["react","react-dom"]
+    app: ENTRY_PATH
   },
-  
   output:{
-    filename: utils.assetsPath("js/[name].[chunkhash:8].js"),
+    /**不使用 chunkhash 原因：
+     * 当css文件发生改变，js文件的chunkhash也发生改变
+     * 
+     */
+    filename: utils.assetsPath("js/[name].[contenthash:8].bundle.js"),
     path: config.assetsRoot,
     publicPath: isDev? config.dev.assetsPublicPath: config.build.assetsPublicPath
   },
