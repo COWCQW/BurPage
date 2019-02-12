@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 module.exports = {
   target: 'node',
   mode: "production",
-  entry: path.resolve(__dirname, '../src/client.index.js'), 
+  entry: path.resolve(__dirname, '../src/server.index.js'), 
   output: {
     libraryTarget: 'commonjs2',
     filename: 'server.bundle.js',

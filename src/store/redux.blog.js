@@ -1,4 +1,4 @@
-import "whatwg-fetch"
+import axios from "axios"
 
 
 // initState 初始化数据
@@ -13,13 +13,13 @@ const SORT_BLOGLIST_BY_DATE = "sort_bloglist_by_date"
 const SORT_BLOGLIST_BY_TYPE = "sort_bloglist_by_type"
 
 // ActionCreators
-const initBloglist = (payload) => {
+export const initBloglist = (payload) => {
   return {
     type:INIT_BLOGLIST,
     payload
   }
 }
-const initBloglistSortByDate = (payload) => {
+export const initBloglistSortByDate = (payload) => {
 
   const result = payload.reduce((init,cur)=>{
     const year = cur.date.slice(0,4)
@@ -44,7 +44,7 @@ const initBloglistSortByDate = (payload) => {
     payload: result
   }
 }
-const initBlogListSortByType = (payload) => {
+export const initBlogListSortByType = (payload) => {
   
   const result = payload.reduce((init,cur)=>{
     const type = cur.type
@@ -61,6 +61,27 @@ const initBlogListSortByType = (payload) => {
     payload:result
   }
 }
+export const initBlog = (payload,dispatch) => {
+  dispatch(initBloglist(payload))
+  dispatch(initBloglistSortByDate(payload))
+  dispatch(initBlogListSortByType(payload))
+}
+export const synchronizeBlogDate = (payload,dispatch) => {
+  dispatch({
+    type: INIT_BLOGLIST,
+    payload:payload.blogList
+  })
+  dispatch({
+    type: SORT_BLOGLIST_BY_TYPE,
+    payload: payload.blogListSortByType
+  })
+  dispatch({
+    type: SORT_BLOGLIST_BY_DATE,
+    payload: payload.blogListSortByDate
+  })
+}
+
+
 
 // Reducer
 export const blogReducer = (state=initState,action) => {
@@ -90,10 +111,9 @@ export const fetchBloglist = () => {
     const blogList = getState().blog.blogList
     if(blogList.length != 0)
       return
-    const data = await fetch("/api/blog/getBlogList").then(res=>res.json())
-    dispatch(initBloglist(data))
-    dispatch(initBloglistSortByDate(data))
-    dispatch(initBlogListSortByType(data))
+    const url = "/api/blog/getBlogList"
+    const data = await fetch(url).then(res=>res.json())
+    initBlog(data,dispatch)
   }
 }
 

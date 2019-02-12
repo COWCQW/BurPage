@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import JournalArticleList from "components/JournalArticleList"
 import JournalMenu from "components/JournalMenu"
 
-import { fetchJournalList } from "store/redux.journal"
+import { fetchJournalList,initJournal } from "store/redux.journal"
 import "./index.stylus"
 
 class Journal extends React.PureComponent {
@@ -45,15 +45,21 @@ class Journal extends React.PureComponent {
     )
   }
   componentDidMount() {
-    if (this.props.journalList.length === 0) this.props.fetchJournalList()
+    if(window.__initReduxState__ && window.__initReduxState__.journal && window.__initReduxState__.journal.journalList.length!= 0)
+      this.props.synchronizeBlogDate(window.__initReduxState__.journal.journalList)
+    else
+      this.props.fetchJournalList()
   }
 }
 
 const mapStateToProps = state => ({
   journalList: state.journal.journalList
 })
-const mapDispatchToProps = {
-  fetchJournalList
+const mapDispatchToProps = dispatch =>{
+  return {
+    fetchJournalList:() => dispatch(fetchJournalList()),
+    synchronizeBlogDate:(payload) => initJournal(payload,dispatch)
+  }
 }
 export default connect(
   mapStateToProps,

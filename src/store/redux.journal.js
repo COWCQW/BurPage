@@ -1,4 +1,3 @@
-import "whatwg-fetch"
 // 初始化数据
 const initState = {
   journalList:[]
@@ -15,6 +14,13 @@ const initJournalList = (payload) => {
     payload
   }
 }
+export const initJournal  = (payload,dispatch) => {
+  dispatch({
+    type:INIT_JOURNAL_LIST,
+    payload:payload
+  })
+}
+
 // reducer
 export const journalReducer = (state=initState,action) => {
   switch(action.type){
@@ -28,7 +34,11 @@ export const journalReducer = (state=initState,action) => {
 
 export const fetchJournalList = () => {
 
-  return async dispatch => {
+  return async (dispatch,getState) => {
+    // 防止重复发送请求
+    const journalList = getState().journal.journalList
+    if(journalList.length != 0)
+      return
     const data = await fetch("/api/journal/getJournalList").then(res=>res.json())
     dispatch(initJournalList(data))
   }

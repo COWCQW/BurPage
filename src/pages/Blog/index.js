@@ -8,10 +8,17 @@ import BlogAchieve from "components/BlogAchieve"
 
 import "./index.stylus"
 import BlogArticleList from "components/BlogAritcleList"
-import { fetchBloglist } from "store/redux.blog"
+import { fetchBloglist, synchronizeBlogDate } from "store/redux.blog"
 
-const mapDispatchToProps = {
-  fetchBloglist
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchBloglist:() => {
+      dispatch(fetchBloglist())
+    },
+    synchronizeBlogDate:(payload) => {
+      synchronizeBlogDate(payload,dispatch)
+    }
+  }
 }
 
 class Blog extends React.PureComponent {
@@ -46,8 +53,8 @@ class Blog extends React.PureComponent {
               const { tag, route, icon } = item
               return (
                 <NavLink
-                    key={index}
-                    to={route}
+                  key={index}
+                  to={route}
                   exact
                   activeStyle={{
                     color: "#333"
@@ -74,11 +81,14 @@ class Blog extends React.PureComponent {
     )
   }
   componentDidMount() {
-    this.props.fetchBloglist()
+    if(window.__initReduxState__.blog && window.__initReduxState__.blog.blogList.length!=0)
+      this.props.synchronizeBlogDate(window.__initReduxState__.blog)
+    else
+      this.props.fetchBloglist()
   }
 }
 
 export default connect(
-  null,
+  (state)=>({blog:state.blog}),
   mapDispatchToProps
 )(Blog)

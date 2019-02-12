@@ -2,16 +2,32 @@ const path = require("path")
 const Koa = require("koa")
 const KoaRouter = require("koa-router")
 const KoaStaticServer = require("koa-static-server")
+const pug = require("pug")
+const manifest = require("./dist/manifest.json")
 const app = new Koa()
 const router = new KoaRouter()
 /** SSR
- *  
+ *   服务端渲染
  */
-const SSr = require("../distSSRR/server.bundle").default
-console.log(SSr)
-// app.use((ctx)=>{
-//   ctx.body = SSr(ctx)
-// })
+const renderToString = require("../distSSR/server.bundle").default
+
+app.use(async (ctx,next)=>{
+  /**
+   * 如果接口是api接口,或者是静态文件 
+   * 则进过下一个中间件，不进行服务端渲染
+   */
+  if(ctx.url.includes("api") || ctx.url.includes("assets"))
+    return next()
+  const {renderString,state} = await renderToString(ctx)
+  ctx.body = pug.renderFile(path.resolve(__dirname,"./index.template.pug"),{
+    title:"BurPage",
+    renderString,
+    state,
+    manifest:Object.values(manifest)
+  })
+})
+
+
 
 
 // 引入路由

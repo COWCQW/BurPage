@@ -20,7 +20,7 @@ const reducer = combineReducers({
 
 
 export default () => createStore(reducer, 
-  window.__REDUX_DEVTOOLS_EXTENSION__ ? 
-    compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__()):
-    compose(applyMiddleware(thunk))
+  // window && window.__REDUX_DEVTOOLS_EXTENSION__ ? 
+  //   compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__()):
+  compose(applyMiddleware(thunk))
 )

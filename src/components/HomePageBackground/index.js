@@ -7,7 +7,6 @@ class HomePageBackground extends React.PureComponent {
       x: -10,
       y: -10
     }
-    this.resize()
   }
   resize() {
     window.onresize = () => {
@@ -108,6 +107,7 @@ class HomePageBackground extends React.PureComponent {
     })
   }
   componentDidMount() {
+    this.resize()
     this.initCtx()
     this.initAnimation()
   }
