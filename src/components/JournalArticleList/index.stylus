@@ -10,6 +10,7 @@
     width 90%
 
   .journalArticle
+    display block
     transition 0.5s all ease
     position relative
     background-color #fff
@@ -18,10 +19,12 @@
     padding 20px
     margin-bottom 40px
     cursor pointer
+    // 客户端dom和服务端dom重复被渲染
     animation fade 0.5s ease 1 normal
 
     // 渲染问题
     &:after
+      // 客户端dom和服务端dom重复被渲染
       animation delay 3s ease 1 normal
       z-index -10
       content ''
@@ -37,7 +40,6 @@
 
       >h2
         color #000
-
     >h2
       transition 0.5s all ease
       font-size 20px

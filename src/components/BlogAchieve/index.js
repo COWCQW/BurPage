@@ -22,10 +22,14 @@ class BlogAchieve extends React.PureComponent{
               <h3 className="year">{achieve.year}</h3>
               <div>
                 {achieve.articles.map((article)=>(
-                  <div key = {article.date}>
+                  <a 
+                    className="item"
+                    key = {article.date}
+                    href={`/blog/${article.type}/${article.title}.md`}
+                  >
                     <span>{article.date}</span>
                     {article.title}
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>)))

@@ -1,4 +1,6 @@
 # BurPage
-build your page easier
-## 文件目录结构
 
+build your page
+打造个人网站
+
+## 项目描述

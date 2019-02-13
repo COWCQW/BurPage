@@ -9,7 +9,7 @@ module.exports = {
   output: {
     libraryTarget: 'commonjs2',
     filename: 'server.bundle.js',
-    path: path.resolve(__dirname, "../distSSR")
+    path: path.resolve(__dirname, "../serverDist")
   },
   resolve:{
     alias: {

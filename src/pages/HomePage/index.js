@@ -1,6 +1,5 @@
 import React from "react"
-
-import NavList from "common/NavList"
+import { NavLink } from "react-router-dom"
 import HomePageBackground from "components/HomePageBackground"
 import "./index.stylus"
 
@@ -20,10 +19,6 @@ class HomePage extends React.PureComponent {
       {
         tag: "暂未开放/(｡ì _ í｡)",
         route: "空空"
-      },
-      {
-        tag: "About",
-        route: "about"
       }
     ]
   }
@@ -31,14 +26,34 @@ class HomePage extends React.PureComponent {
     return (
       <React.Fragment>
         <div className="homePage">
-          <h1>麦圈の小站</h1>
-          <h2>∧( 'Θ' )∧</h2>
-          <NavList navMsg={this.navMsg} type="homePage_Item" />
+          <h1>网络日志</h1>
+          <h2>探索新知</h2>
+          <nav className="homePage_Item">
+            <NavList
+              navMsg={this.navMsg}
+            />
+            <a href="about">about</a>
+          </nav>
         </div>
         <HomePageBackground/>
       </React.Fragment>
     )
   }
 }
+
+const NavList = (props) => {
+
+  return (
+    <React.Fragment>
+      {
+        props.navMsg.map((item)=>{
+          const { tag, route} = item
+          return <NavLink to={route} key={tag}>{tag}</NavLink>
+        })
+      }
+    </React.Fragment>
+  )
+}
+
 
 export default HomePage

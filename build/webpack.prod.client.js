@@ -1,5 +1,6 @@
 const WebpackAssetsManifest = require('webpack-assets-manifest')
 const merge = require("webpack-merge")
+const path = require("path")
 const baseWebpackConfig = require("./webpack.base")
 
 // 生成html模板文件
@@ -22,9 +23,9 @@ const utils = require("./utils")
 
 const prodWebpackConfig = merge(baseWebpackConfig,{
   // 生产环境
-  entry:{
-    
-  },  
+  output:{
+    path:path.resolve(__dirname,"../clientDist")
+  },
   mode: "production",
   module:{
     rules:[
@@ -111,6 +112,9 @@ const prodWebpackConfig = merge(baseWebpackConfig,{
       // 异步模块的默认文件名
       chunkFilename: utils.assetsPath("css/async.[name].[contenthash:8].bundle.css")
     }),
+    /**
+     * SSR环境下不需要html模板
+     */
     new HtmlWebpackPlugin({
       template: config.indexHTML,
       /**

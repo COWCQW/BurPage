@@ -43,7 +43,10 @@ class BlogArticleList extends React.PureComponent {
         {articles.map(article => {
           const { title, date, type, summary, cover } = article
           return (
-            <div className="article" key={article.date + article.date}>
+            <a className="article" 
+              key={article.date + article.date} 
+              href={`/blog/${type}/${title}.md`}
+            >
               <h2 className="article-head"> {title} </h2>
               <div className="article-body">
                 <div className="top">
@@ -57,7 +60,7 @@ class BlogArticleList extends React.PureComponent {
                 {cover ? <img className="cover" src={cover} alt="" /> : null}
                 <p> {summary} </p>
               </div>
-            </div>
+            </a>
           )
         })}
       </section>

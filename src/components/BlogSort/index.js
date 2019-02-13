@@ -1,7 +1,7 @@
 import React from "react"
+import {NavLink} from "react-router-dom"
 import { connect } from "react-redux"
 
-import NavList from "common/NavList"
 import "./index.stylus"
 
 const mapStateToProps = state => ({
@@ -23,11 +23,29 @@ class BlogSort extends React.PureComponent {
     }
     return (
       <section className="blogSort">
-        <NavList navMsg={navMsg} type="sort">
-        </NavList>
+        <ul className="sort">
+          <NavList
+            navMsg={navMsg}
+          />
+        </ul>
       </section>
     )
   }
+}
+const NavList = (props) => {
+  return (
+    <React.Fragment>
+      {
+        props.navMsg.map((item)=>{
+          const { tag, route} = item
+          return (
+            <li>
+              <NavLink to={route} key={tag}>{tag}</NavLink>
+            </li>)
+        })
+      }
+    </React.Fragment>
+  )
 }
 
 export default connect(mapStateToProps)(BlogSort)

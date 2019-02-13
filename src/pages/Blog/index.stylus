@@ -35,8 +35,8 @@
         i
           transform rotate(80deg)
   .avatar
-    height 150px
-    width 150px
+    height 15vw
+    width 15vw
     margin 0 auto 
     border-radius 50%
     position relative

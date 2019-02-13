@@ -9,7 +9,7 @@ import Journal from "pages/Journal"
 import { StaticRouter, Switch, Route } from "react-router-dom"
 import { Provider } from "react-redux"
 import createStore from "store"
-
+import  "assets/stylus/reset.stylus"
 import {
   initBlog
 } from "store/redux.blog"
@@ -18,7 +18,7 @@ import {
 } from "store/redux.journal"
 
 
-export default async (ctx, context) => {
+export default async (ctx) => {
   const store = createStore()
   if(ctx.url.includes("blog")){
     const data = await fetch("http://localhost:9000/api/blog/getBlogList").then(res =>

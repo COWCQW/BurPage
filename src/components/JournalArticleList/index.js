@@ -40,14 +40,18 @@ class JournalArticalList extends React.PureComponent{
         {
           jouranls.map((journal)=>{
             return (
-              <div className="journalArticle" key ={journal.date}>
+              <a 
+                className="journalArticle" 
+                key ={journal.date}
+                href={`/journal/${journal.date.slice(0,4)}/${journal.title}.md`}
+              >
                 <h2>{journal.title}</h2>
                 <h3>{journal.date}</h3>
                 {
                   journal.cover?<img src={journal.cover}/>:null
                 }
                 <p>{journal.summary}</p>
-              </div>
+              </a>
             )
           })
         }

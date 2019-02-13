@@ -81,7 +81,7 @@ class Blog extends React.PureComponent {
     )
   }
   componentDidMount() {
-    if(window.__initReduxState__.blog && window.__initReduxState__.blog.blogList.length!=0)
+    if(window.__initReduxState && window.__initReduxState__.blog && window.__initReduxState__.blog.blogList.length!=0)
       this.props.synchronizeBlogDate(window.__initReduxState__.blog)
     else
       this.props.fetchBloglist()

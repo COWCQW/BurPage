@@ -27,11 +27,13 @@
       box-shadow 7px 5px 8px 1px rgba(99,99,99,0.2)
   .article
     width 60%
+    display block
     margin 0 auto 30px auto
     cursor pointer
     border-bottom 2px solid #d1d5da
     transition 1s box-shadow ease
     padding 30px
+    // 服务端，客户端出现重复渲染问题，会有卡顿
     animation fade 0.5s ease 1 normal
     &:hover
       box-shadow -1px -2px 20px 1px #e1e4e8 
@@ -77,8 +79,8 @@
             text-align left
     .cover
       display block
-      height 100px
-      width 70%
+      height 25vw
+      width 44vw
       margin 0 auto 20px auto 
     p
       font-size 14px

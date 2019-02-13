@@ -23,7 +23,8 @@
       font-weight 600
       font-style italic
     >div
-      >div
+      >.item
+        display block
         color #666
         box-shadow 0 0 14px #cacbcb
         background #fff
