@@ -40,7 +40,7 @@ class BlogArticleList extends React.PureComponent {
     return articles === undefined ? null : (
       <section className="blogArticleList">
         {type === undefined ? null : <h2 className="type"> {type} </h2>}
-        {articles.map(article => {
+        {articles.length != 0 ? articles.map(article => {
           const { title, date, type, summary, cover } = article
           return (
             <a className="article" 
@@ -62,7 +62,13 @@ class BlogArticleList extends React.PureComponent {
               </div>
             </a>
           )
-        })}
+        }):
+          <div
+            style={{
+              fintSize:"20px",
+              textAlign:"center"
+            }}
+          >该分类下没有文章</div>}
       </section>
     )
   }

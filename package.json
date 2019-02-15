@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --progress --config ./build/webpack.dev.js",
     "buildC": "node ./build/build.js C",
     "buildS": "node ./build/build.js S",
-    "server": "node ./server"
+    "server": "node ./site"
   },
   "author": "qwc",
   "license": "ISC",

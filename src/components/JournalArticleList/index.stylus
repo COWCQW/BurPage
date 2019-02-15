@@ -47,7 +47,7 @@
       font-weight 600
 
     >h3
-      font-size 14px
+      font-size 15px
       color #999
       font-weight 700
       font-style italic
@@ -58,15 +58,15 @@
 
     >img
       display block
-      width 80%
-      height 150px
+      width 75%
       margin 0 auto
       margin-bottom 20px
-      border 1px solid #000
-
+      border 1px solid #999
     p
       padding 20px
       line-height 20px
+      font-size 14px
+      text-align justify
 
 @keyframes fade
   from
@@ -78,6 +78,5 @@
 @keyframes delay
   from
     opacity 0
-
   to
     opacity 1

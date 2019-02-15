@@ -5,7 +5,7 @@
   >.title
     color #666
     font-size 22px
-    font-weight 850
+    font-weight 600
     font-style italic
     margin-right 10px
   >a

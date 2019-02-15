@@ -1,5 +1,3 @@
-import axios from "axios"
-
 
 // initState 初始化数据
 const initState = {

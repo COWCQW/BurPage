@@ -4,7 +4,7 @@ const path = require("path")
 // 定义配置
 module.exports = {
   indexHTML: path.resolve(__dirname, "../public/index.html"),
-  assetsRoot: path.resolve(__dirname, "../dist"),
+  assetsRoot: path.resolve(__dirname, "../clientDist"),
   alias: {
     "pages": path.resolve(__dirname, "../src/pages"),
     "components": path.resolve(__dirname, "../src/components"),
@@ -17,7 +17,7 @@ module.exports = {
     assetsPublicPath: "/",
     proxyTable: {
       "/api": {
-        target: "http://localhost:9000/", //目标接口域名
+        target: "http://localhost:8080/", //目标接口域名
         changeOrigin: true, //是否跨域
       }
     },

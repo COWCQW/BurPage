@@ -26,7 +26,7 @@ class Journal extends React.PureComponent {
     return (
       <React.Fragment>
         <header className="journalHead">
-          <span className="title"> qwc 'Journal</span> <NavLink to="/" />
+          <span className="title">Ethan's Journal</span> <NavLink to="/" />
           <span> </span>
         </header>
         <section className="journalContent">

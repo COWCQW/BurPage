@@ -79,11 +79,12 @@
             text-align left
     .cover
       display block
-      height 25vw
       width 44vw
       margin 0 auto 20px auto 
     p
       font-size 14px
+      text-align justify
+      line-height 20px
 
 @keyframes fade
   from
