@@ -78,6 +78,5 @@
 @keyframes delay
   from
     opacity 0
-
   to
     opacity 1

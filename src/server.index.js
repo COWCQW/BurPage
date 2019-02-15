@@ -1,7 +1,7 @@
 import React from "react"
 
 import "isomorphic-fetch"
-import { renderToString } from "react-dom/server"
+import { renderToNodeStream } from "react-dom/server"
 import HomePage from "pages/HomePage"
 import Blog from "pages/Blog"
 import Journal from "pages/Journal"
@@ -21,12 +21,12 @@ import {
 export default async (ctx) => {
   const store = createStore()
   if(ctx.url.includes("blog")){
-    const data = await fetch("http://localhost:9000/api/blog/getBlogList").then(res =>
+    const data = await fetch("http://localhost:8080/api/blog/getBlogList").then(res =>
       res.json()
     ) 
     initBlog(data,store.dispatch)
   }else if(ctx.url.includes("journal")){
-    const data = await fetch("http://localhost:9000/api/journal/getJournalList").then(res=>res.json())
+    const data = await fetch("http://localhost:8080/api/journal/getJournalList").then(res=>res.json())
     initJournal(data,store.dispatch)
   }
   const url = decodeURI(ctx.url)
@@ -42,7 +42,7 @@ export default async (ctx) => {
     </Provider>
   )
   return {
-    renderString:renderToString(app),
+    renderedNodeStream:renderToNodeStream(app),
     state:store.getState()
   }
 }

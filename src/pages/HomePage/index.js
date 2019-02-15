@@ -18,7 +18,7 @@ class HomePage extends React.PureComponent {
       },
       {
         tag: "暂未开放/(｡ì _ í｡)",
-        route: "空空"
+        route: "/"
       }
     ]
   }
@@ -27,7 +27,7 @@ class HomePage extends React.PureComponent {
       <React.Fragment>
         <div className="homePage">
           <h1>网络日志</h1>
-          <h2>探索新知</h2>
+          <h2>思考已知,探索新知</h2>
           <nav className="homePage_Item">
             <NavList
               navMsg={this.navMsg}

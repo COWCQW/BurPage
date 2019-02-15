@@ -38,7 +38,7 @@ class JournalArticalList extends React.PureComponent{
     return (
       <div className="jouranlArticleList">
         {
-          jouranls.map((journal)=>{
+          jouranls.length !=0 ? jouranls.map((journal)=>{
             return (
               <a 
                 className="journalArticle" 
@@ -53,7 +53,15 @@ class JournalArticalList extends React.PureComponent{
                 <p>{journal.summary}</p>
               </a>
             )
-          })
+          }):<div
+            style={{
+              fontSize:"30px",
+              fontWeight:"500",
+              textAlign:"center"
+            }}
+          >
+            这年好懒，什么都没有留下
+          </div>
         }
       </div>
     )
