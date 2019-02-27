@@ -12,6 +12,7 @@ import "assets/stylus/reset.stylus"
 
 
 const store = Createstore()
+store
 ReactDom.hydrate(
   <Provider store={store}>
     <BrowserRouter>

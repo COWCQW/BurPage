@@ -34,6 +34,7 @@ class JournalMenu extends React.PureComponent {
                 this.props.currentYear === year ? "active year" : "year"
               }
               onClick={() => this.handleMenuItemClick(year)}
+              key={year}
             >
                
               {year} 

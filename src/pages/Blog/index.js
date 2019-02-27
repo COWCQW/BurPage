@@ -8,15 +8,12 @@ import BlogAchieve from "components/BlogAchieve"
 
 import "./index.stylus"
 import BlogArticleList from "components/BlogAritcleList"
-import { fetchBloglist, synchronizeBlogDate } from "store/redux.blog"
+import { fetchBloglist } from "store/redux.blog"
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchBloglist:() => {
       dispatch(fetchBloglist())
-    },
-    synchronizeBlogDate:(payload) => {
-      synchronizeBlogDate(payload,dispatch)
     }
   }
 }
@@ -81,9 +78,7 @@ class Blog extends React.PureComponent {
     )
   }
   componentDidMount() {
-    if(window.__initReduxState && window.__initReduxState__.blog && window.__initReduxState__.blog.blogList.length!=0)
-      this.props.synchronizeBlogDate(window.__initReduxState__.blog)
-    else
+    if(!this.props.blog.blogList.length)
       this.props.fetchBloglist()
   }
 }

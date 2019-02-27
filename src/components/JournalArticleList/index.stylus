@@ -19,12 +19,9 @@
     padding 20px
     margin-bottom 40px
     cursor pointer
-    // 客户端dom和服务端dom重复被渲染
     animation fade 0.5s ease 1 normal
-
     // 渲染问题
     &:after
-      // 客户端dom和服务端dom重复被渲染
       animation delay 3s ease 1 normal
       z-index -10
       content ''
@@ -67,6 +64,7 @@
       line-height 20px
       font-size 14px
       text-align justify
+      word-break break-all
 
 @keyframes fade
   from

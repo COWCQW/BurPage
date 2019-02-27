@@ -1,10 +1,17 @@
 
 // initState 初始化数据
-const initState = {
+// 浏览器端 node 端
+let initState = {
   blogList:[],
   blogListSortByDate:[],
   blogListSortByType:{}
 }
+try {
+  initState = window.__initReduxState__ && window.__initReduxState__.blog || initState
+} catch (error) {
+}
+
+
 // actionTypes
 const INIT_BLOGLIST = "init_bloglist"
 const SORT_BLOGLIST_BY_DATE = "sort_bloglist_by_date"
@@ -64,20 +71,7 @@ export const initBlog = (payload,dispatch) => {
   dispatch(initBloglistSortByDate(payload))
   dispatch(initBlogListSortByType(payload))
 }
-export const synchronizeBlogDate = (payload,dispatch) => {
-  dispatch({
-    type: INIT_BLOGLIST,
-    payload:payload.blogList
-  })
-  dispatch({
-    type: SORT_BLOGLIST_BY_TYPE,
-    payload: payload.blogListSortByType
-  })
-  dispatch({
-    type: SORT_BLOGLIST_BY_DATE,
-    payload: payload.blogListSortByDate
-  })
-}
+
 
 
 
@@ -111,6 +105,15 @@ export const fetchBloglist = () => {
       return
     const url = "/api/blog/getBlogList"
     const data = await fetch(url).then(res=>res.json())
+    data.sort((a,b)=>{
+      if(a.date === b.date)
+        return 0
+      else if(a.date < b.date)
+        return 1
+      else
+        return -1
+
+    })
     initBlog(data,dispatch)
   }
 }

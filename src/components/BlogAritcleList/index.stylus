@@ -33,7 +33,6 @@
     border-bottom 2px solid #d1d5da
     transition 1s box-shadow ease
     padding 30px
-    // 服务端，客户端出现重复渲染问题，会有卡顿
     animation fade 0.5s ease 1 normal
     &:hover
       box-shadow -1px -2px 20px 1px #e1e4e8 
@@ -85,6 +84,7 @@
       font-size 14px
       text-align justify
       line-height 20px
+      word-break break-all
 
 @keyframes fade
   from
